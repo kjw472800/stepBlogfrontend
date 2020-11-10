@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
-const Login=(props)=>{
+const Signup=(props)=>{
     const classes= useStyles();
     const auth = useContext(AuthContext);
     const { register, handleSubmit, watch, errors } = useForm();
@@ -29,12 +29,13 @@ const Login=(props)=>{
         try{
             console.log(process.env.REACT_APP_BACKEND_URL);
             const response= await sendRequest(
-                process.env.REACT_APP_BACKEND_URL+'/users/login',
+                process.env.REACT_APP_BACKEND_URL+'/users/signup',
                 'POST',
                 JSON.stringify(
                     {
                         email:data.Email,
-                        password:data.Password
+                        password:data.Password,
+                        userName:data.UserName
                     }
                 ),
                 {
@@ -53,7 +54,7 @@ const Login=(props)=>{
 
 
     return (
-        <Box m={2} boxShadow={10}  borderRadius="borderRadius" height={300} >
+        <Box m={2} boxShadow={10}  borderRadius="borderRadius" height={400} >
             <Box display="flex" mt={1} alignItems='center' justifyContent='center'> 
                 <Avatar className={classes.rounded}>
                     <LockOpenOutlinedIcon />
@@ -61,13 +62,14 @@ const Login=(props)=>{
             </Box>
             <Box display="flex" alignItems='center' justifyContent='center'> 
                 <Typography component="h1" variant="h5">
-                    Log in
+                    Sign up
                 </Typography>
             </Box>
             <Box p={1} >
             <form onSubmit={handleSubmit(onLoginSubmit)}>
                     <TextField variant="outlined" fullWidth inputRef={register} margin="normal"  label="Email" name="Email"/>
                     <TextField variant="outlined"  fullWidth inputRef={register} margin="normal"    label="Password" name="Password"/>
+                    <TextField variant="outlined" fullWidth inputRef={register} margin="normal"  label="UserName" name="UserName"/>
                     <Button fullWidth type="submit" variant="contained" color='secondary'>Submit</Button>
             </form>
             </Box>
@@ -75,4 +77,4 @@ const Login=(props)=>{
     );
 }
 
-export default Login;
+export default Signup;

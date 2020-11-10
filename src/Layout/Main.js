@@ -10,6 +10,7 @@ import Login from '../User/Login';
 import { AuthContext } from '../shared/Context/auth-context';
 import MyPosts from '../Posts/MyPosts';
 import MyPlaces from '../Places/MyPlaces';
+import Signup from '../User/Signup';
 
 
 const Main=(props)=>{
@@ -45,6 +46,9 @@ const Main=(props)=>{
     else{
         routes=( 
             <Switch>
+                    <Route path='/signup' exact>
+                        <Signup/>
+                    </Route>
                     <Route path='/posts' exact>
                         <Posts/>
                     </Route>

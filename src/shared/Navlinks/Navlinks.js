@@ -20,8 +20,11 @@ const Navlinks=(props)=>{
   
     const handleClose = (path, logout) => {
       setAnchorEl(null);
-      if(logout){
+      if(path==='/logout'){
         auth.logout();
+        return;
+      }
+      else if(path==='close'){
         return;
       }
       console.log(path);
@@ -36,23 +39,28 @@ const Navlinks=(props)=>{
           <MenuItem onClick={()=>handleClose('/posts')}>Profile</MenuItem>
           <MenuItem onClick={()=>handleClose('/myplaces')}>My places</MenuItem>
           <MenuItem onClick={()=>handleClose('/myposts')}>My posts</MenuItem>
-          <MenuItem onClick={()=>handleClose('/logout',true)}>Logout</MenuItem>
+          <MenuItem onClick={()=>handleClose('/createplace')}>Create place</MenuItem>
+          <MenuItem onClick={()=>handleClose('/createpost')}>Create post</MenuItem>
+          <MenuItem onClick={()=>handleClose('/logout')}>Logout</MenuItem>
         </div>
       )
     }else{
-      menuItems= <MenuItem onClick={()=>handleClose('/login')}>Login</MenuItem>
+      menuItems= <div>
+        <MenuItem onClick={()=>handleClose('/login')}>Login</MenuItem>
+        <MenuItem onClick={()=>handleClose('/signup')}>Signup</MenuItem>
+        </div>
     }
 
     return (
         <React.Fragment>
-                <Button color="inherit">Posts</Button>
-                <Button color="inherit">Places</Button>
+                <Button color="inherit" onClick={()=>handleClose('/posts')}>Posts</Button>
+                <Button color="inherit" onClick={()=>handleClose('/places')}>Places</Button>
                 <IconButton onClick={handleClick}> <AccountCircle/> </IconButton>
                 <Menu
                     id="simple-menu"
                     anchorEl={anchorEl}
                     open={Boolean(anchorEl)}
-                    onClose={handleClose}
+                    onClose={()=>handleClose('close')}
                 >
                 {menuItems}                        
                 </Menu>

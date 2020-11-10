@@ -22,8 +22,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow:5
   },
   media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
+    width: '100%', // 16:9
   },
   avatar: {
     backgroundColor: red[500],
@@ -43,13 +42,9 @@ const PlaceCard=(props)=> {
         title={props.title}
         subheader={props.subtitle}
       />
-      <CardMedia
-        className={classes.media}
-        image={testImage}
-        title="Paella dish"
-      />
+      <img className={classes.media} alt='Post Picture' src={process.env.REACT_APP_ASSET_URL+'/'+props.imageUrl}/> 
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography paragraph style={{ wordWrap: "break-word" }}>
           {props.content}
         </Typography>
       </CardContent>
