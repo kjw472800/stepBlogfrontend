@@ -1,14 +1,33 @@
-import { Grid,Backdrop,CircularProgress } from '@material-ui/core';
+import { Grid,Backdrop,CircularProgress,Button, Divider } from '@material-ui/core';
 import React,{useEffect,useState,useContext} from 'react';
-import PlaceItem from '../Places/PlaceItem';
-import PostItem from './PostItem';
+import MyPostItem from './MyPostItem';
 import { useHttpClient } from '../shared/hooks/http-hook';
 import { AuthContext } from '../shared/Context/auth-context';
+import { useHistory } from 'react-router-dom';
 
 const MyPosts=(props)=>{
     const { isLoading, error, sendRequest, clearError } = useHttpClient();
     const [posts, setPosts] = useState([]);
     const auth = useContext(AuthContext);
+    const history= useHistory();
+    const handleDelete=async (pid)=>{
+        
+        try{
+            const response= await sendRequest(
+                process.env.REACT_APP_BACKEND_URL+'/posts/'+pid,
+                'DELETE',
+                null,
+                {
+                     Authorization:'Bearer '+auth.token
+                }
+            );
+            setPosts( preposts=> preposts.filter(p=>p.id!==pid) );
+        }
+        catch(err){
+        }
+
+    }
+
     useEffect(() => {
         // getallposts
         const fetchPost = async ()=>{
@@ -22,7 +41,6 @@ const MyPosts=(props)=>{
                          Authorization:'Bearer '+auth.token
                     }
                 );
-                console.log(response.posts);
                 setPosts(response.posts);
             }catch(err){
                 
@@ -39,10 +57,9 @@ const MyPosts=(props)=>{
 
             {
                 posts.map(p=>{
-                    console.log(p);
                     return (
                         <Grid key={p.id} item xs={12}>
-                            <PostItem content={p}/>
+                            <MyPostItem content={p} handleDelete={handleDelete}/>
                         </Grid>
                     )
                 })

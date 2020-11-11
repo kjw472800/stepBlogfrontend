@@ -37,7 +37,7 @@ const PostPlaceItem=(props)=> {
                 <Typography variant='subtitle1' component='h2'>{props.content.subtitle}</Typography>
                 <Typography variant='body1' paragraph>{ props.content.description}</Typography>
                 <Typography variant='body2'>Address:{props.content.address}</Typography>
-                <Typography variant='caption'>created at:{props.content.createdAt}</Typography>
+                <Typography variant='caption'>created at:{props.content.createdAt.slice(0,10)}</Typography>
             </Grid>
         </Grid>
     </Box>

@@ -1,13 +1,12 @@
-import React ,{useContext}from 'react';
+import React ,{useContext,useState}from 'react';
 import { useForm } from "react-hook-form";
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import { Avatar, Box, Button, Card, Container, Paper, Typography } from '@material-ui/core';
-import { deepOrange, green } from '@material-ui/core/colors';
+import { Avatar, Box, Button, Snackbar, IconButton, Typography } from '@material-ui/core';
 import LockOpenOutlinedIcon from '@material-ui/icons/LockOpenOutlined';
 import { useHttpClient } from '../shared/hooks/http-hook'
 import { AuthContext } from '../shared/Context/auth-context';
-
+import CloseIcon from '@material-ui/icons/Close';
 
 
 
@@ -23,11 +22,11 @@ const Login=(props)=>{
     const auth = useContext(AuthContext);
     const { register, handleSubmit, watch, errors } = useForm();
     const { isLoading, error, sendRequest, clearError } = useHttpClient();
-    
+    const [openSnacker, setopenSnacker] = useState(false);
+    const handleClose=()=>setopenSnacker(false);
 
     const onLoginSubmit = async (data) => {
         try{
-            console.log(process.env.REACT_APP_BACKEND_URL);
             const response= await sendRequest(
                 process.env.REACT_APP_BACKEND_URL+'/users/login',
                 'POST',
@@ -42,18 +41,17 @@ const Login=(props)=>{
                 }
 
             );
-            console.log(response);
             auth.login(response.token);    
         }
         catch(err){
-            console.log(error);
+            setopenSnacker(true);
         }
     
     }
 
 
     return (
-        <Box m={2} boxShadow={10}  borderRadius="borderRadius" height={300} >
+        <Box m={2} boxShadow={10}  borderRadius="borderRadius" height={300} width='60%'>
             <Box display="flex" mt={1} alignItems='center' justifyContent='center'> 
                 <Avatar className={classes.rounded}>
                     <LockOpenOutlinedIcon />
@@ -71,6 +69,20 @@ const Login=(props)=>{
                     <Button fullWidth type="submit" variant="contained" color='secondary'>Submit</Button>
             </form>
             </Box>
+            <Snackbar
+                anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'center',
+                }}
+                open={!!error&&openSnacker}
+                onClick={handleClose}
+                message={error}
+                action={
+                    <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
+                        <CloseIcon fontSize="small" />
+                    </IconButton>
+                }
+            />
         </Box>
     );
 }

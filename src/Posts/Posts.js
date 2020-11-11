@@ -1,6 +1,5 @@
 import { Grid,Backdrop,CircularProgress } from '@material-ui/core';
 import React,{useEffect,useState} from 'react';
-import PlaceItem from '../Places/PlaceItem';
 import PostItem from './PostItem';
 import { useHttpClient } from '../shared/hooks/http-hook';
 
@@ -15,7 +14,6 @@ const Posts=(props)=>{
                 const response= await sendRequest(
                     process.env.REACT_APP_BACKEND_URL+'/posts/'
                 );
-                console.log(response.posts);
                 setPosts(response.posts);
             }catch(err){
                 

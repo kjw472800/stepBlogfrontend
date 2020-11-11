@@ -27,7 +27,6 @@ const Navlinks=(props)=>{
       else if(path==='close'){
         return;
       }
-      console.log(path);
       history.push(path);
     };
 
@@ -36,7 +35,6 @@ const Navlinks=(props)=>{
     if(auth.isLoggedIn){
       menuItems=(
         <div>
-          <MenuItem onClick={()=>handleClose('/posts')}>Profile</MenuItem>
           <MenuItem onClick={()=>handleClose('/myplaces')}>My places</MenuItem>
           <MenuItem onClick={()=>handleClose('/myposts')}>My posts</MenuItem>
           <MenuItem onClick={()=>handleClose('/createplace')}>Create place</MenuItem>

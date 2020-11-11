@@ -1,4 +1,4 @@
-import { Grid,Backdrop,CircularProgress } from '@material-ui/core';
+import { Grid,Backdrop,CircularProgress, Button } from '@material-ui/core';
 import React,{useEffect,useState,useContext} from 'react';
 import PlaceItem from './PlaceItem'
 import { useHttpClient } from '../shared/hooks/http-hook';
@@ -21,8 +21,6 @@ const MyPlaces=(props)=>{
                          Authorization:'Bearer '+auth.token
                     }
                 )
-                console.log(response);
-                console.log(response.places);
                 setPlaces(response.places);
             }catch(err){}
         }

@@ -13,7 +13,6 @@ const Places=(props)=>{
                 const response= await sendRequest(
                     `${process.env.REACT_APP_BACKEND_URL}/places/`
                 )
-                console.log(response.places);
                 setPlaces(response.places);
             }catch(err){}
         }

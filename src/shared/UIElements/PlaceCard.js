@@ -1,17 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
-import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 
-import testImage from '../../testImage/101.jpg'
-import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,7 +31,6 @@ const PlaceCard=(props)=> {
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            R
           </Avatar>
         }
         title={props.title}
@@ -44,7 +38,7 @@ const PlaceCard=(props)=> {
       />
       <img className={classes.media} alt='Post Picture' src={process.env.REACT_APP_ASSET_URL+'/'+props.imageUrl}/> 
       <CardContent>
-        <Typography paragraph style={{ wordWrap: "break-word" }}>
+        <Typography paragraph variant={'body'} style={{ wordWrap: "break-word" }}>
           {props.content}
         </Typography>
       </CardContent>

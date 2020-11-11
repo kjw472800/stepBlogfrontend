@@ -16,6 +16,7 @@ import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 import PostPlaceItem from './PostPlaceItem';
 
@@ -26,11 +27,15 @@ const useStyles = makeStyles((theme) => ({
   media: {
     width:'100%'
   },
+  iconColor:{
+      
+  }
+  ,
   avatar: {
     backgroundColor: red[500],
   },
 }));
-const PostItem= (props)=> {
+const MyPostItem= (props)=> {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
   const [currentPlace, setCurrentPlace] = useState(0);
@@ -39,6 +44,7 @@ const PostItem= (props)=> {
     setExpanded(!expanded);
   };
 
+
   return (
     <Card className={classes.root}>
       <CardHeader
@@ -46,6 +52,12 @@ const PostItem= (props)=> {
           <Avatar aria-label="place" className={classes.avatar}>
           </Avatar>
         }
+        action={
+            <IconButton aria-label="delete" onClick={()=>props.handleDelete(props.content.id)}>
+                <DeleteIcon  color="error" />
+            </IconButton>
+        }
+     
         title={props.content.creator}
         subheader={props.content.createdAt.slice(0,10)}
         >
@@ -102,4 +114,4 @@ const PostItem= (props)=> {
 
 
 
-export default PostItem;
+export default MyPostItem;

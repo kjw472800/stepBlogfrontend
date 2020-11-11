@@ -7,7 +7,7 @@ import { useHttpClient } from '../shared/hooks/http-hook';
 import StreetviewIcon from '@material-ui/icons/Streetview';
 import SearchIcon from '@material-ui/icons/Search';
 import { useHistory } from 'react-router-dom';
-import PlaceItem from '../Places/PlaceItem';
+import ErrorIcon from '@material-ui/icons/Error';
 
 const CreatePost=(props)=>{
     const [steps, setSteps] = useState([]);
@@ -38,15 +38,12 @@ const CreatePost=(props)=>{
                     dsteps.push(places[index].id);
                 })
             }
-            console.log(data);
             const formData= new FormData();
             formData.append('title',data.title);
             formData.append('subtitle',data.subtitle);
             formData.append('description',data.description);
             formData.append('steps',dsteps);
-            //formData.append('creator',auth.userId);
             formData.append('image',data.image[0]);
-            //console.log(formData);
 
             const response= await sendRequest(
                 process.env.REACT_APP_BACKEND_URL+'/posts/',
@@ -57,11 +54,9 @@ const CreatePost=(props)=>{
                 }
 
             );
-            console.log(response);
             history.push('/places');
         }
         catch(err){
-            console.log(error);
         }
     }
 
@@ -71,7 +66,6 @@ const CreatePost=(props)=>{
                 const response= await sendRequest(
                     `${process.env.REACT_APP_BACKEND_URL}/places/`
                 )
-                console.log(response.places);
                 setPlaces(response.places);
             }catch(err){}
         }
@@ -86,8 +80,6 @@ const CreatePost=(props)=>{
                          Authorization:'Bearer '+auth.token
                     }
                 )
-                console.log(response);
-                console.log(response.places);
                 setPlaces(response.places);
             }catch(err){}
         }
@@ -96,7 +88,7 @@ const CreatePost=(props)=>{
 
     
     return (
-        <Box width="100%">
+        <Box width="90%">
        
         <Backdrop  open={isLoading}>
             <CircularProgress color="inherit" />
@@ -109,12 +101,15 @@ const CreatePost=(props)=>{
             </Box>
             <Box p={1} >
             <form style={{margin:20}} onSubmit={handleSubmit(onSubmit)}>
-                    <TextField variant="outlined" inputRef={register} margin="normal" fullWidth label="Post Name" name="title"/>
-                    <TextField variant="outlined"  inputRef={register} margin="dense" fullWidth   label="Subtitle" name="subtitle"/>
-                    <TextField variant="outlined" rows={5} inputRef={register} margin="normal" fullWidth multiline  label="Comment" name="description"/>      
+                    <TextField variant="outlined" inputRef={register({ required: true, minLength: 5 })} margin="normal" fullWidth label="Post Name" name="title"/>
+                    {errors.title && <Typography> <ErrorIcon color='primary'/> length of a title is at least 5</Typography>}
+                    <TextField variant="outlined"  inputRef={register({ required: true, minLength: 5 })} margin="dense" fullWidth   label="Subtitle" name="subtitle"/>
+                    {errors.subtitle && <Typography > <ErrorIcon color='primary'/> length of a subtitle is at least 5 </Typography>}
+                    <TextField variant="outlined" rows={5} inputRef={register({ required: true, minLength: 10 })} margin="normal" fullWidth multiline  label="Comment" name="description"/>      
+                    {errors.description && <Typography > <ErrorIcon color='primary'/> length of a comment is at least 10</Typography>}
                     <input
                         name="image"
-                        ref={register}  
+                        ref={register({ required: true })}  
                         type="file"
                     />
                     <Stepper  nonLinear  activeStep={currentPlace}>

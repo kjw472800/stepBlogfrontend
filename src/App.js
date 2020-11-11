@@ -1,6 +1,6 @@
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { BrowserRouter } from 'react-router-dom'
-import React,{ useState } from 'react';
+import React from 'react';
 import {useAuth} from './shared/hooks/auth-hook';
 
 import Main from './Layout/Main';

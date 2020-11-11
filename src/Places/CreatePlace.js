@@ -1,11 +1,12 @@
 import React,{useContext} from 'react';
 import { useForm } from "react-hook-form";
 import TextField from '@material-ui/core/TextField';
-import { Box, Button, Backdrop, CircularProgress, Paper, Typography, Divider } from '@material-ui/core';
+import { Box, Button, Backdrop, CircularProgress, Typography } from '@material-ui/core';
 import GolfCourseIcon from '@material-ui/icons/GolfCourse';
 import { AuthContext } from '../shared/Context/auth-context';
 import { useHttpClient } from '../shared/hooks/http-hook';
 import { useHistory } from 'react-router-dom';
+import ErrorIcon from '@material-ui/icons/Error';
 
 const CreatePlace=(props)=>{
     const auth = useContext(AuthContext);
@@ -21,7 +22,6 @@ const CreatePlace=(props)=>{
             formData.append('address',data.address);
             //formData.append('creator',auth.userId);
             formData.append('image',data.image[0]);
-            console.log(formData);
 
              const response= await sendRequest(
                  process.env.REACT_APP_BACKEND_URL+'/places',
@@ -32,16 +32,14 @@ const CreatePlace=(props)=>{
                  }
 
              );
-             console.log(response);
              history.push('/places');
         }
         catch(err){
-            console.log(error);
         }
     }
 
     return (
-        <div>
+        <Box width='90%'>
         <Backdrop  open={isLoading}>
             <CircularProgress color="inherit" />
         </Backdrop>
@@ -53,23 +51,28 @@ const CreatePlace=(props)=>{
             </Box>
             <Box p={1} >
             <form onSubmit={handleSubmit(onSubmit)}>
-                    <TextField variant="outlined" inputRef={register} margin="normal" fullWidth label="Title" name="title"/>
-                    <TextField variant="outlined"  inputRef={register} margin="dense" fullWidth   label="Subtitle" name="subtitle"/>
-                    <TextField variant="outlined" rows={20} inputRef={register} margin="normal" fullWidth multiline  label="Comment" name="description"/>
-                    <TextField variant="outlined" inputRef={register} fullWidth margin="normal" label="Address/ Name" name="address"/>
+                    <TextField variant="outlined" inputRef={register({ required: true, minLength: 5 })} margin="normal" fullWidth label="Title" name="title"/>
+                    {errors.title && <Typography> <ErrorIcon color='primary'/> length of a title is at least 5</Typography>}
+                    <TextField variant="outlined"  inputRef={register({ required: true, minLength: 5 })} margin="dense" fullWidth   label="Subtitle" name="subtitle"/>
+                    {errors.subtitle && <Typography> <ErrorIcon color='primary'/> length of a subtitle is at least 5</Typography>}
+                    <TextField variant="outlined" rows={20} inputRef={register({ required: true, minLength: 10 })} margin="normal" fullWidth multiline  label="Comment" name="description"/>
+                    {errors.description && <Typography> <ErrorIcon color='primary'/> length of a comment is at least 10</Typography>}
+                    <TextField variant="outlined" inputRef={register({ required: true, minLength: 5 })} fullWidth margin="normal" label="Address/ Name" name="address"/>
+                    {errors.address && <Typography> <ErrorIcon color='primary'/> length of an address is at least 5</Typography>}
                     <input
+                        style={{margin:10}}
                         name="image"
-                        ref={register}  
+                        ref={register({required:true})}
                         type="file"
                     />
-  
+
                     <Button fullWidth type="submit" variant="contained" color='secondary'>
                         submit 
                     </Button>
             </form>
             </Box>
         </Box>
-        </div>
+        </Box>
     );
 }
 
