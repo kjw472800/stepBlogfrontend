@@ -62,7 +62,7 @@ const MyPostItem= (props)=> {
         subheader={props.content.createdAt.slice(0,10)}
         >
         </CardHeader>
-        <img className={classes.media} alt='Post Picture' src={process.env.REACT_APP_ASSET_URL+'/'+props.content.imageUrl}/> 
+        <img className={classes.media} alt='Post Picture' src={props.content.imageUrl}/> 
       <CardContent>
         <Typography variant="h4"  component="h2">
           {props.content.title}

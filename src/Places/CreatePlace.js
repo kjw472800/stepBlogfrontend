@@ -14,28 +14,7 @@ const CreatePlace=(props)=>{
     const { isLoading, error, sendRequest, clearError } = useHttpClient();
     const history= useHistory();
     const onSubmit = async (data) => {
-        try{
-            const formData= new FormData();
-            formData.append('title',data.title);
-            formData.append('subtitle',data.subtitle);
-            formData.append('description',data.description);
-            formData.append('address',data.address);
-            //formData.append('creator',auth.userId);
-            formData.append('image',data.image[0]);
-
-             const response= await sendRequest(
-                 process.env.REACT_APP_BACKEND_URL+'/places',
-                 'POST',
-                 formData,
-                 {
-                      Authorization:'Bearer '+auth.token
-                 }
-
-             );
-             history.push('/places');
-        }
-        catch(err){
-        }
+        alert(data);
     }
 
     return (

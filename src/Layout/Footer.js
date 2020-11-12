@@ -11,7 +11,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit" href="https://github.com/kjw472800">
         Your Website
       </Link>{' '}
       {new Date().getFullYear()}
@@ -38,14 +38,14 @@ const Footer= (props) =>{
           <Typography variant="h6" align="center" gutterBottom>
             {title}
           </Typography>
-          {/* <Box display="flex" justifyContent="center" >
+          { <Box display="flex" justifyContent="center" >
                   <IconButton aria-label="github" href="https://github.com/kjw472800">
                       <GitHubIcon />
                   </IconButton>
                   <IconButton aria-label="Linkedln" href="https://www.linkedin.com/in/jiunan-fang-7661b91b7/" >
                       <LinkedInIcon />
                   </IconButton>
-          </Box> */}
+          </Box> }
           <Copyright />
         </Container>
       </footer>

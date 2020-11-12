@@ -27,28 +27,9 @@ const Signup=(props)=>{
     const handleClose=()=>setopenSnacker(false);
 
     const onLoginSubmit = async (data) => {
-        try{
-            const response= await sendRequest(
-                process.env.REACT_APP_BACKEND_URL+'/users/signup',
-                'POST',
-                JSON.stringify(
-                    {
-                        email:data.Email,
-                        password:data.Password,
-                        userName:data.UserName
-                    }
-                ),
-                {
-                    'Content-Type':'application/json'
-                }
-
-            );
-            auth.login(response.token);    
-        }
-        catch(err){
-            setopenSnacker(true);
-        }
-    
+        console.log(data);
+        auth.login();
+        setopenSnacker(true); 
     }
 
 
@@ -72,7 +53,7 @@ const Signup=(props)=>{
             <form onSubmit={handleSubmit(onLoginSubmit)}>
                     <TextField variant="outlined" fullWidth inputRef={register({ required: true,pattern:/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })} margin="normal"  label="Email" name="Email"/>
                     {errors.Email && <Typography variant='body'> <ErrorIcon color='primary'/> email is required and should match pattern</Typography>}
-                    <TextField variant="outlined"  fullWidth inputRef={register({ required: true, minLength: 6 })} margin="normal"    label="Password" name="Password"/>
+                    <TextField variant="outlined"  fullWidth type='password' inputRef={register({ required: true, minLength: 6 })} margin="normal"    label="Password" name="Password"/>
                     {errors.Password && <Typography variant='body'> <ErrorIcon color='primary'/> length of a password is at least 6</Typography>}
                     <TextField variant="outlined" fullWidth inputRef={register({ required: true, minLength: 3 })} margin="normal"  label="UserName" name="UserName"/>
                     {errors.UserName && <Typography variant='body' ><ErrorIcon color='primary'/> length of a userName is at least 3</Typography>}
@@ -84,9 +65,9 @@ const Signup=(props)=>{
                 vertical: 'bottom',
                 horizontal: 'center',
                 }}
-                open={!!error&&openSnacker}
+                open={openSnacker}
                 onClick={handleClose}
-                message={error}
+                message="DEMO ERROR MESSAGE"
                 action={
                     <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
                         <CloseIcon fontSize="small" />

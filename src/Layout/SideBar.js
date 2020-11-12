@@ -6,7 +6,7 @@ const contents=[
     {
         title:'About',
         subtitle:'2020/11/7 by author',
-        content:`this is a place for everyone to share his/her travel footprint.\nCreate your places, link them to form a post, and share them with others.`
+        content:`this is a place for everyone to share his/her travel footprint.\nCreate your places, link them to form a post, and share them with others.\n This website is just deployed for demo of UI. `
     },
     {
         title:'Functions',

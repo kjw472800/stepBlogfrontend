@@ -36,7 +36,7 @@ const PlaceCard=(props)=> {
         title={props.title}
         subheader={props.subtitle}
       />
-      <img className={classes.media} alt='Post Picture' src={process.env.REACT_APP_ASSET_URL+'/'+props.imageUrl}/> 
+      <img className={classes.media} alt='Post Picture' src={props.imageUrl}/> 
       <CardContent>
         <Typography paragraph variant={'body'} style={{ wordWrap: "break-word" }}>
           {props.content}
