@@ -47,6 +47,9 @@ const Footer= (props) =>{
                   </IconButton>
           </Box> }
           <Copyright />
+          <Typography variant="body2" color="textSecondary" align="center">
+            此網站僅限於學習用途，若圖片檔案有侵權，請聯絡作者
+          </Typography>
         </Container>
       </footer>
     );

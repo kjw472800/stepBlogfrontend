@@ -31,6 +31,7 @@ const PlaceCard=(props)=> {
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
+              {props.creator.slice(0,1)}
           </Avatar>
         }
         title={props.title}
@@ -40,6 +41,9 @@ const PlaceCard=(props)=> {
       <CardContent>
         <Typography paragraph variant={'body'} style={{ wordWrap: "break-word" }}>
           {props.content}
+        </Typography>
+        <Typography paragraph variant={'caption'} style={{ wordWrap: "break-word" }}>
+          By. {props.creator}
         </Typography>
       </CardContent>
     </Box>

@@ -51,14 +51,14 @@ const dummyPlaces=[
         subtitle: '吃',
         creator:'John',
         createdAt:'2020/11/10',
-        description:'吃天一香滷肉飯，營養三明治去瑞芳吃就好。',
+        description:'吃天一香滷肉飯、遠東泡泡冰，營養三明治可以去瑞芳吃就好。',
         imageUrl:DEMO6
     },{
         title:'饒河街夜市',
         subtitle: '台北最強夜市',
         creator:'Peter',
         createdAt:'2020/11/10',
-        description:'恩，其實我也沒去過。',
+        description:'號稱台北最好的夜市，交通相對不便，但值得。',
         imageUrl:DEMO9
     },{
         title:'中正紀念堂',

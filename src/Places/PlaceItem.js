@@ -39,6 +39,7 @@ const PlaceItem= (props)=> {
       <CardHeader
         avatar={
           <Avatar aria-label="place" className={classes.avatar}>
+              {props.content.creator.slice(0,1)}
           </Avatar>
         }
         title={props.content.creator}

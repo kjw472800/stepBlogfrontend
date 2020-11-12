@@ -1,16 +1,27 @@
-import { Box, Grid } from '@material-ui/core';
-import React,{useContext} from 'react';
+import { Box, Grid, Backdrop,CircularProgress } from '@material-ui/core';
+import React,{useContext,Suspense} from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom'
+import { AuthContext } from '../shared/Context/auth-context';
 import CreatePlace from '../Places/CreatePlace';
 import Places from '../Places/Places';
 import CreatePost from '../Posts/CreatePost';
 import Posts from '../Posts/Posts';
 import SideBar from './SideBar';
 import Login from '../User/Login';
-import { AuthContext } from '../shared/Context/auth-context';
 import MyPosts from '../Posts/MyPosts';
 import MyPlaces from '../Places/MyPlaces';
 import Signup from '../User/Signup';
+
+// const CreatePlace= React.lazy(()=>import('../Places/CreatePlace'));
+// const Places= React.lazy(()=>import('../Places/Places'));
+// const CreatePost= React.lazy(()=>import('../Posts/CreatePost'));
+// const Posts= React.lazy(()=>import('../Posts/Posts'));
+// const SideBar= React.lazy(()=>import('./SideBar'));
+// const Login= React.lazy(()=>import('../User/Login'));
+// const MyPosts= React.lazy(()=>import('../Posts/MyPosts'));
+// const MyPlaces= React.lazy(()=>import('../Places/MyPlaces'));
+// const Signup= React.lazy(()=>import('../User/Signup'));
+
 
 
 const Main=(props)=>{
@@ -75,6 +86,7 @@ const Main=(props)=>{
             <Grid container alignItems="stretch" style={{height:'100%'}}>
                 <Grid item md={9} xs={12} >
                     <Box height='100%' display='flex' justifyContent='center' alignItems='center'  > 
+                    
                         {routes}
                     </Box>
                 </Grid>

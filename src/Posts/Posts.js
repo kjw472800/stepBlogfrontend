@@ -24,7 +24,7 @@ const dummyPosts=[
         title:'北海岸一日遊',
         subtitle: '美食、美景、輕鬆遊玩',
         creator:'John',
-        createdAt:'2020/11/10',
+        createdAt:'2020/11/5',
         description:'給予只擁有短暫假期的台北人，一點喘息的空間，從北車出發，晚上7點左右結束，給明天還要上班的你一點喘息的空間',
         imageUrl:DEMO1,
         steps:[
@@ -102,7 +102,7 @@ const dummyPosts=[
         title:'半日行',
         subtitle: '輕鬆走走',
         creator:'Nobody',
-        createdAt:'2020/11/10',
+        createdAt:'2020/11/11',
         description:'走',
         imageUrl:DEMO15,
         steps:[
@@ -118,7 +118,7 @@ const dummyPosts=[
                 subtitle: '台北最強夜市',
                 creator:'Peter',
                 createdAt:'2020/11/10',
-                description:'恩，其實我也沒去過。',
+                description:'號稱台北最好的夜市，交通相對不便，但值得。',
                 imageUrl:DEMO9
             }
         ]

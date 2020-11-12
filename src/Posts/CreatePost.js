@@ -193,7 +193,7 @@ const CreatePost=(props)=>{
                         return(
                             <Grid item key={i} md={4} xs={6}>
                                 <Button fullWidth  onClick={()=>( setSteps(preSteps=>[...preSteps,i]))}>
-                                    <PlaceCard title={place.title} subtitle={place.subtitle} content={place.description} imageUrl={place.imageUrl}/> 
+                                    <PlaceCard title={place.title} creator={place.creator} subtitle={place.subtitle} content={place.description} imageUrl={place.imageUrl}/> 
                                 </Button>
                             </Grid>
                         );
@@ -205,7 +205,7 @@ const CreatePost=(props)=>{
             { !isLoading&& dialogPlace!=null &&
                 <Dialog fullWidth onClose={handleClose} aria-labelledby="customized-dialog-title" open={openDialog}>
                 {/* <PlaceItem content={places[dialogPlace]}/>  */}
-                <PlaceCard title={places[dialogPlace].title} subtitle={places[dialogPlace].subtitle} content={places[dialogPlace].description} imageUrl={places[dialogPlace].imageUrl}/> 
+                <PlaceCard title={places[dialogPlace].title} creator={places[dialogPlace].creator} subtitle={places[dialogPlace].subtitle} content={places[dialogPlace].description} imageUrl={places[dialogPlace].imageUrl}/> 
                 </Dialog>
             }
         </Box>
