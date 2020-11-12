@@ -83,7 +83,7 @@ const CreatePost=(props)=>{
                 setPlaces(response.places);
             }catch(err){}
         }
-        fetchUserPlaces();
+        fetchPlaces();
     },[]);
 
     

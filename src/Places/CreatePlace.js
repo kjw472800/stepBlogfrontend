@@ -51,13 +51,13 @@ const CreatePlace=(props)=>{
             </Box>
             <Box p={1} >
             <form onSubmit={handleSubmit(onSubmit)}>
-                    <TextField variant="outlined" inputRef={register({ required: true, minLength: 5 })} margin="normal" fullWidth label="Title" name="title"/>
-                    {errors.title && <Typography> <ErrorIcon color='primary'/> length of a title is at least 5</Typography>}
-                    <TextField variant="outlined"  inputRef={register({ required: true, minLength: 5 })} margin="dense" fullWidth   label="Subtitle" name="subtitle"/>
-                    {errors.subtitle && <Typography> <ErrorIcon color='primary'/> length of a subtitle is at least 5</Typography>}
-                    <TextField variant="outlined" rows={20} inputRef={register({ required: true, minLength: 10 })} margin="normal" fullWidth multiline  label="Comment" name="description"/>
-                    {errors.description && <Typography> <ErrorIcon color='primary'/> length of a comment is at least 10</Typography>}
-                    <TextField variant="outlined" inputRef={register({ required: true, minLength: 5 })} fullWidth margin="normal" label="Address/ Name" name="address"/>
+                    <TextField variant="outlined" inputRef={register({ required: true, minLength: 2 })} margin="normal" fullWidth label="Title" name="title"/>
+                    {errors.title && <Typography> <ErrorIcon color='primary'/> length of a title is at least 2</Typography>}
+                    <TextField variant="outlined"  inputRef={register({ required: true, minLength: 2 })} margin="dense" fullWidth   label="Subtitle" name="subtitle"/>
+                    {errors.subtitle && <Typography> <ErrorIcon color='primary'/> length of a subtitle is at least 2</Typography>}
+                    <TextField variant="outlined" rows={20} inputRef={register({ required: true, minLength: 5 })} margin="normal" fullWidth multiline  label="Comment" name="description"/>
+                    {errors.description && <Typography> <ErrorIcon color='primary'/> length of a comment is at least 5</Typography>}
+                    <TextField variant="outlined" inputRef={register({ required: true, minLength: 2 })} fullWidth margin="normal" label="Address/ Name" name="address"/>
                     {errors.address && <Typography> <ErrorIcon color='primary'/> length of an address is at least 5</Typography>}
                     <input
                         style={{margin:10}}

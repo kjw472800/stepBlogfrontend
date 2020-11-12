@@ -6,13 +6,18 @@ const contents=[
     {
         title:'About',
         subtitle:'2020/11/7 by author',
-        content:`this is a place for everyone to share his/her travel footprint`
+        content:`this is a place for everyone to share his/her travel footprint.\nCreate your places, link them to form a post, and share them with others.`
     },
     {
-        title:'Announcement',
-        subtitle:'2020/11/8 by author',
-        content:`Most of functions are still not completed`
-    }
+        title:'Functions',
+        subtitle:'2020/11/11 by author',
+        content:`support functions: signup, login, creating places, creating posts, viewing all posts/places, delete own places\n Security by JSON Web Tokens`
+    },
+    {
+      title:'Development',
+      subtitle:'2020/11/11by author',
+      content:`Frontend: react react-hook-form material-ui, Backend: express, DB: MonogoDB`
+  }
 ]
 
 const SideBar=(props)=>{
