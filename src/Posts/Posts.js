@@ -1,8 +1,7 @@
-import { Grid,Backdrop,CircularProgress } from '@material-ui/core';
+import { Grid,Backdrop,CircularProgress, Box } from '@material-ui/core';
 import React,{useEffect,useState} from 'react';
 import PostItem from './PostItem';
 import { useHttpClient } from '../shared/hooks/http-hook';
-
 const Posts=(props)=>{
     const { isLoading, error, sendRequest, clearError } = useHttpClient();
     const [posts, setPosts] = useState([]);

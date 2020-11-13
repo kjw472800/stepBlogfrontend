@@ -101,10 +101,10 @@ const CreatePost=(props)=>{
             </Box>
             <Box p={1} >
             <form style={{margin:20}} onSubmit={handleSubmit(onSubmit)}>
-                    <TextField variant="outlined" inputRef={register({ required: true, minLength: 5 })} margin="normal" fullWidth label="Post Name" name="title"/>
-                    {errors.title && <Typography> <ErrorIcon color='primary'/> length of a title is at least 5</Typography>}
-                    <TextField variant="outlined"  inputRef={register({ required: true, minLength: 5 })} margin="dense" fullWidth   label="Subtitle" name="subtitle"/>
-                    {errors.subtitle && <Typography > <ErrorIcon color='primary'/> length of a subtitle is at least 5 </Typography>}
+                    <TextField variant="outlined" inputRef={register({ required: true, minLength: 2 })} margin="normal" fullWidth label="Post Name" name="title"/>
+                    {errors.title && <Typography> <ErrorIcon color='primary'/> length of a title is at least 2</Typography>}
+                    <TextField variant="outlined"  inputRef={register({ required: true, minLength: 2 })} margin="dense" fullWidth   label="Subtitle" name="subtitle"/>
+                    {errors.subtitle && <Typography > <ErrorIcon color='primary'/> length of a subtitle is at least 2 </Typography>}
                     <TextField variant="outlined" rows={5} inputRef={register({ required: true, minLength: 10 })} margin="normal" fullWidth multiline  label="Comment" name="description"/>      
                     {errors.description && <Typography > <ErrorIcon color='primary'/> length of a comment is at least 10</Typography>}
                     <input

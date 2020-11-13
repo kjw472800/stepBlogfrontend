@@ -19,6 +19,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 import PostPlaceItem from './PostPlaceItem';
+import PostMap from '../shared/UIElements/PostMap';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -73,7 +74,7 @@ const MyPostItem= (props)=> {
       </CardContent>
       <Box display='flex' >
         <Box flexGrow={1}>
-          <IconButton aria-label="Like">
+          <IconButton disabled aria-label="Like">
             <FavoriteIcon />
           </IconButton>
         </Box>
@@ -107,6 +108,9 @@ const MyPostItem= (props)=> {
             </Stepper>
             {props.content.steps.length>0&& <PostPlaceItem content={props.content.steps[currentPlace]}/>}
         </CardContent>
+        <Box width="100%" height="60vh">
+            <PostMap steps={props.content.steps}></PostMap>
+        </Box>
       </Collapse>
     </Card>
   );

@@ -8,6 +8,7 @@ import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepButton from '@material-ui/core/StepButton';
 
+
 import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
@@ -18,6 +19,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import PostPlaceItem from './PostPlaceItem';
+import PostMap from '../shared/UIElements/PostMap';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,6 +37,7 @@ const PostItem= (props)=> {
   const [expanded, setExpanded] = useState(false);
   const [currentPlace, setCurrentPlace] = useState(0);
   const [place, setPlace] = useState(0);
+
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
@@ -61,15 +64,17 @@ const PostItem= (props)=> {
       </CardContent>
       <Box display='flex' >
         <Box flexGrow={1}>
-          <IconButton aria-label="Like">
+          <IconButton disabled aria-label="Like">
             <FavoriteIcon />
           </IconButton>
+        
         </Box>
         <IconButton
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
         >
+          
           <ExpandMoreIcon />
         </IconButton>
       </Box>
@@ -95,7 +100,12 @@ const PostItem= (props)=> {
             </Stepper>
             {props.content.steps.length>0&& <PostPlaceItem content={props.content.steps[currentPlace]}/>}
         </CardContent>
+        <Box width="100%" height="60vh">
+            <PostMap steps={props.content.steps}></PostMap>
+        </Box>
+     
       </Collapse>
+      
     </Card>
   );
 }

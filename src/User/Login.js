@@ -65,7 +65,7 @@ const Login=(props)=>{
             <Box p={1} >
             <form onSubmit={handleSubmit(onLoginSubmit)}>
                     <TextField variant="outlined" fullWidth inputRef={register} margin="normal"  label="Email" name="Email"/>
-                    <TextField variant="outlined"  fullWidth inputRef={register} margin="normal"    label="Password" name="Password"/>
+                    <TextField variant="outlined" type="password"  fullWidth inputRef={register} margin="normal"    label="Password" name="Password"/>
                     <Button fullWidth type="submit" variant="contained" color='secondary'>Submit</Button>
             </form>
             </Box>

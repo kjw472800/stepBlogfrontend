@@ -72,7 +72,7 @@ const Signup=(props)=>{
             <form onSubmit={handleSubmit(onLoginSubmit)}>
                     <TextField variant="outlined" fullWidth inputRef={register({ required: true,pattern:/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })} margin="normal"  label="Email" name="Email"/>
                     {errors.Email && <Typography variant='body'> <ErrorIcon color='primary'/> email is required and should match pattern</Typography>}
-                    <TextField variant="outlined"  fullWidth inputRef={register({ required: true, minLength: 6 })} margin="normal"    label="Password" name="Password"/>
+                    <TextField variant="outlined" type="password" fullWidth inputRef={register({ required: true, minLength: 6 })} margin="normal"    label="Password" name="Password"/>
                     {errors.Password && <Typography variant='body'> <ErrorIcon color='primary'/> length of a password is at least 6</Typography>}
                     <TextField variant="outlined" fullWidth inputRef={register({ required: true, minLength: 3 })} margin="normal"  label="UserName" name="UserName"/>
                     {errors.UserName && <Typography variant='body' ><ErrorIcon color='primary'/> length of a userName is at least 3</Typography>}

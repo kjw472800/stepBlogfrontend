@@ -6,7 +6,7 @@ import { useHttpClient } from '../shared/hooks/http-hook';
 const Places=(props)=>{
     const { isLoading, error, sendRequest, clearError } = useHttpClient();
     const [places, setPlaces] = useState([]);
-
+      
     useEffect(() => {
         const fetchPlaces =async()=>{
             try{
@@ -14,6 +14,7 @@ const Places=(props)=>{
                     `${process.env.REACT_APP_BACKEND_URL}/places/`
                 )
                 setPlaces(response.places);
+                console.log(response.places);
             }catch(err){}
         }
         fetchPlaces();
