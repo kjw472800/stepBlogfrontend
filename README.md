@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+frontend: https://github.com/kjw472800/stepBlogfrontend
+backend: https://github.com/kjw472800/stepBlogBackend
+DEMO: UI demo https://kjw472800.github.io/
+
 ## DEVELOPMENT
 1.git clone https://github.com/kjw472800/stepBlogfrontend.git .\
 2.npm install.\
