@@ -1,6 +1,17 @@
-# Getting Started with Create React App
+# Footprint web app
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+frontend: https://github.com/kjw472800/stepBlogfrontend \
+backend: https://github.com/kjw472800/stepBlogBackend \
+DEMO: UI demo https://kjw472800.github.io/ \
+
+## DEVELOPMENT
+1.git clone https://github.com/kjw472800/stepBlogfrontend.git .\
+2.npm install.\
+3.create .env.\
+4.set REACT_APP_BACKEND_URL= 'YOUR_REACT_APP_BACKEND_URL',  REACT_APP_ASSET_URL='YOUR_REACT_APP_ASSET_URL'.\
+5. npm start to run dev server.\
 
 ## Available Scripts
 
