@@ -23,6 +23,7 @@ export const useHttpClient = () => {
                     ///link request to httpAborCtrl and can cancel this request by call AbortCtrl
                     signal: httpAbortCtrl.signal
                 });
+              
                 const responseData = await response.json();
                 activeHttpRequests.current = activeHttpRequests.current.filter((reqCtrl) => reqCtrl !== httpAbortCtrl);
                 setIsLoading(false);

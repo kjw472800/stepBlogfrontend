@@ -89,10 +89,10 @@ const CreatePost=(props)=>{
     
     return (
         <Box width="90%">
-       
+         {isLoading?   
         <Backdrop  open={isLoading}>
             <CircularProgress color="inherit" />
-        </Backdrop>
+        </Backdrop>:
         <Box m={2} boxShadow={10} borderColor="secondary.main"  borderRadius="borderRadius" >
         
             <Box display="flex" alignItems='center'> 
@@ -158,7 +158,7 @@ const CreatePost=(props)=>{
                 }
             </Grid>
             </Box>
-        </Box>
+        </Box>}
             { !isLoading&& dialogPlace!=null &&
                 <Dialog fullWidth onClose={handleClose} aria-labelledby="customized-dialog-title" open={openDialog}>
                 {/* <PlaceItem content={places[dialogPlace]}/>  */}

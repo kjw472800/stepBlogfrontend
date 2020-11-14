@@ -55,7 +55,7 @@ const PlaceItem= (props)=> {
         
       />
        
-       <img className={classes.media} alt="place image" src={process.env.REACT_APP_ASSET_URL+'/'+props.content.imageUrl}/>  
+       <img className={classes.media} alt="place image" src={props.content.imageUrl}/>  
       <CardContent>
         <Typography variant="h5"  component="h2">
           {props.content.title}

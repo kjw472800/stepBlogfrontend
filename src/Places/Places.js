@@ -14,7 +14,7 @@ const Places=(props)=>{
                     `${process.env.REACT_APP_BACKEND_URL}/places/`
                 )
                 setPlaces(response.places);
-                console.log(response.places);
+    
             }catch(err){}
         }
         fetchPlaces();

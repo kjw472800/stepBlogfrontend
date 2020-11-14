@@ -50,11 +50,12 @@ const MyPosts=(props)=>{
     }, [])
 
     return (
+        <div>
+        { isLoading?
+        <Backdrop  open={isLoading}>
+            <CircularProgress color="inherit" />
+        </Backdrop>:
         <Grid container  >
-            <Backdrop  open={isLoading}>
-                <CircularProgress color="inherit" />
-            </Backdrop>
-
             {
                 posts.map(p=>{
                     return (
@@ -65,6 +66,8 @@ const MyPosts=(props)=>{
                 })
             }  
         </Grid>
+        }
+        </div>
     );
 }
 

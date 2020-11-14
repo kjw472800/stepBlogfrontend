@@ -30,7 +30,7 @@ const PostPlaceItem=(props)=> {
     <Box width="100%" boxShadow={5} borderRadius={10}>
         <Grid container >
             <Grid item xs={12} md={6}>
-              <img className={classes.media} alt='Post Picture' src={process.env.REACT_APP_ASSET_URL+'/'+props.content.imageUrl}/> 
+              <img className={classes.media} alt='Post Picture' src={props.content.imageUrl}/> 
             </Grid>    
             <Grid item xs={12} md={6}>
                 <Typography variant='h5' component='h1'>{props.content.title}</Typography>
