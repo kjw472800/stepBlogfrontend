@@ -1,19 +1,26 @@
 # Footprint web app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). \
+Backend is deployed to [Heroku](https://www.heroku.com/). \
+Frontend is hosted by [Firebase](https://firebase.google.com/). 
 
-frontend: https://github.com/kjw472800/stepBlogfrontend \
-backend: https://github.com/kjw472800/stepBlogBackend \
-DEMO: UI demo https://kjw472800.github.io/ \
+Website url: https://footprint-frontend.web.app/posts \
+Backend:https://github.com/kjw472800/stepBlogBackend \
+Frontend:https://github.com/kjw472800/stepBlogfrontend
 
 ## DEVELOPMENT
-1.git clone https://github.com/kjw472800/stepBlogfrontend.git .\
-2.npm install.\
-3.create .env.\
-4.set REACT_APP_BACKEND_URL= 'YOUR_REACT_APP_BACKEND_URL',  REACT_APP_ASSET_URL='YOUR_REACT_APP_ASSET_URL'.\
-5. npm start to run dev server.\
+```bash
+1.git clone https://github.com/kjw472800/stepBlogfrontend.git 
+2.npm install.
+3.create .env file
+4.set config
+Example:
+REACT_APP_BACKEND_URL=YOUR_BACK_END_URL
+REACT_APP_GOOGLE_API_KEY=YOUR_GOOGLE_API_KEY
+5. npm start to run dev server.
+```
 
-## Available Scripts
+## Available Scripts of react-create-app
 
 In the project directory, you can run:
 
